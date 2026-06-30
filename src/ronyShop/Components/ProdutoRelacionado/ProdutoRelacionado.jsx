@@ -29,7 +29,7 @@ const ProdutoRelacionado = ({ categoria }) => {
 
                     return (
                         <article key={produto.id} className={styles.product__card}>
-                            <Link to={`../${produto.id}`}>
+                            <Link to={`../produto/${produto.id}`}>
                                 <img src={produto.thumbnail} alt={produto.title} />
                                 <h3>{produto.title}</h3>
                                 <p className={styles.product__price}>R$ {produto.price.toFixed(2)}</p>

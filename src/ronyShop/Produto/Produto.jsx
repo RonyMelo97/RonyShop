@@ -156,12 +156,14 @@ const Produto = ({ imageIndex }) => {
                     <NavLink
                         to=""
                         end
-                        className={styles.product__tab} activeClassName={styles.product__tabActive} >
+                        className={({ isActive }) => isActive ? `${styles.product__tab} ${styles.product__tabActive}` : styles.product__tab}
+                    >
                         Descrição
                     </NavLink>
                     <NavLink
                         to="avaliacoes"
-                        className={styles.product__tab} activeClassName={styles.product__tabActive} >
+                        className={({ isActive }) => isActive ? `${styles.product__tab} ${styles.product__tabActive}` : styles.product__tab}
+                    >
                         Avaliações
                     </NavLink>
                 </nav>
