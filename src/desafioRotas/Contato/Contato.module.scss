@@ -1,0 +1,209 @@
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 48px auto;
+    padding: 0 24px;
+
+    @media (max-width: 768px) {
+        padding: 0 12px;
+        margin: 24px auto;
+    }
+}
+
+// ── Hero ────────────────────────────────────────
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .05);
+
+    @media (max-width: 640px) {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 20px;
+        gap: 20px;
+    }
+
+    &__avatar {
+        flex-shrink: 0;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid #e5e7eb;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 640px) {
+            width: 110px;
+            height: 110px;
+        }
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #111827;
+            margin: 0;
+
+            @media (max-width: 640px) {
+                font-size: 1.5rem;
+            }
+        }
+
+        p {
+            color: #6b7280;
+            line-height: 1.6;
+            max-width: 560px;
+        }
+    }
+
+    &__label {
+        font-size: .8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        color: #2563eb;
+        background: #eff6ff;
+        border-radius: 999px;
+        padding: 4px 12px;
+        align-self: flex-start;
+
+        @media (max-width: 640px) {
+            align-self: center;
+        }
+    }
+
+    &__links {
+        display: flex;
+        gap: 10px;
+        margin-top: 4px;
+
+        @media (max-width: 640px) {
+            justify-content: center;
+        }
+    }
+
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 18px;
+        border-radius: 8px;
+        font-size: .9rem;
+        font-weight: 600;
+        text-decoration: none;
+        background: #111827;
+        color: #fff;
+        transition: opacity .2s;
+
+        &:hover {
+            opacity: .85;
+        }
+
+        &--blue {
+            background: #2563eb;
+        }
+    }
+}
+
+// ── Grid de cards ───────────────────────────────
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 580px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .04);
+
+    &__title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #f3f4f6;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #374151;
+            font-size: .9rem;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__icon {
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+
+    &__desc {
+        color: #4b5563;
+        line-height: 1.75;
+        font-size: .9rem;
+    }
+}
+
+// ── Tags de tecnologia ─────────────────────────
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    span {
+        background: #f3f4f6;
+        color: #374151;
+        border-radius: 999px;
+        padding: 5px 14px;
+        font-size: .8rem;
+        font-weight: 600;
+        border: 1px solid #e5e7eb;
+    }
+}

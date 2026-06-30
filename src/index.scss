@@ -1,0 +1,175 @@
+// =====================
+// 🎨 VARIÁVEIS
+// =====================
+$primary: #4f46e5;
+$primary-hover: #4338ca;
+$border: #e5e7eb;
+$text: #111827;
+$text-light: #6b7280;
+$background: #f9fafb;
+$white: #ffffff;
+$error: #ef4444;
+
+$font: 'Inter', Arial, sans-serif;
+$radius: 6px;
+$transition: 0.2s ease;
+
+// =====================
+// 🔄 RESET
+// =====================
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// =====================
+// 🧩 BASE
+// =====================
+body {
+  font-family: $font;
+  background: $background;
+  color: $text;
+  line-height: 1.5;
+  padding: 40px 16px 0px 16px;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  // Empurra o footer para o fundo quando o conteúdo é curto
+  > footer {
+    margin-top: auto;
+  }
+}
+
+h1,
+h2 {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: $text-light;
+}
+
+// =====================
+// 🧾 INPUTS / TEXTAREA / SELECT
+// =====================
+input:not([type="radio"]):not([type="checkbox"]),
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid $border;
+  border-radius: $radius;
+  font-size: 14px;
+  transition: $transition;
+  background: $white;
+  margin-bottom: 16px;
+
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    box-shadow: 0 0 0 2px rgba($primary, 0.2);
+  }
+}
+
+input[type="radio"] {
+  accent-color: $primary; // 🔥 moderno e simples
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+input[type="radio"]+label {
+  display: inline-block;
+  margin-right: 16px;
+  cursor: pointer;
+  color: $text;
+}
+
+// =====================
+// 🔘 BUTTON
+// =====================
+button {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: $radius;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: $transition;
+  background: $primary;
+  color: $white;
+  margin-right: 8px;
+
+  &:hover {
+    background: $primary-hover;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// =====================
+// ❗ ESTADOS SIMPLES
+// =====================
+
+// erro via atributo
+input:invalid {
+  border-color: $error;
+}
+
+// botão secundário usando atributo
+button.secondary {
+  background: transparent;
+  border: 1px solid $border;
+  color: $text;
+
+  &:hover {
+    background: #f3f4f6;
+  }
+}
+
+
+.animeLeft {
+  transform: translate(-20px);
+  opacity: 0;
+  animation: animeLeft .3s forwards;
+}
+
+@keyframes animeLeft {
+  to {
+    transform: initial;
+    opacity: initial;
+  }
+}
+
+
+
+.modalAnime {
+  width: 800px;
+  height: 600px;
+  opacity: 0;
+  transform: translateX(300px) scale(0);
+  border-radius: 100%;
+  transform-origin: right center;
+
+  animation: modalAnime .6s forwards;
+}
+
+@keyframes modalAnime {
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    border-radius: 8px;
+  }
+}

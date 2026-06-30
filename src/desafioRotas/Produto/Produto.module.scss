@@ -1,0 +1,331 @@
+.product {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 16px;
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        margin-bottom: 60px;
+    }
+
+    &__gallery {
+        display: flex;
+        gap: 16px;
+    }
+
+    &__thumbs {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #fff;
+            padding: 8px;
+        }
+    }
+
+    &__img {
+        flex: 1;
+        background: #f8f9fa;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 30px;
+
+        img {
+            width: 100%;
+            height: 450px;
+            object-fit: contain;
+        }
+    }
+
+    &__loading {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 3px solid #e5e7eb;
+        border-top-color: #2563eb;
+        animation: spin 0.8s linear infinite;
+        margin: 120px auto;
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__category {
+        font-size: 14px;
+        color: #6b7280;
+    }
+
+    h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    &__rating {
+        font-size: 1rem;
+        color: #f59e0b;
+
+        span {
+            color: #6b7280;
+            font-weight: 400;
+            margin-left: 4px;
+        }
+    }
+
+    &__priceDescount {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #838383;
+        text-decoration: line-through;
+
+    }
+
+    &__price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #111827;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+
+
+
+    &__installments {
+        color: #2563eb;
+        font-size: 14px;
+    }
+
+    &__description {
+        color: #4b5563;
+        line-height: 1.6;
+    }
+
+    &__features {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-left: 20px;
+        color: #374151;
+
+        li {
+            list-style: disc;
+        }
+    }
+
+    &__quantity {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__amount {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 120px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        overflow: hidden;
+
+        button {
+            width: 40px;
+            height: 40px;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+            font-size: 18px;
+            color: #111827;
+        }
+
+        p {
+            font-weight: 600;
+        }
+    }
+
+    &__button {
+        margin-top: 10px;
+        background: #2563eb;
+        color: #fff;
+        border: 0;
+        border-radius: 8px;
+        padding: 14px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover {
+            opacity: .9;
+        }
+    }
+
+    &__tabs {
+        display: flex;
+        gap: 4px;
+        border-bottom: 2px solid #e5e7eb;
+        margin-bottom: 32px;
+    }
+
+    &__tab {
+        padding: 12px 24px;
+        font-size: .95rem;
+        font-weight: 500;
+        color: #6b7280 !important;
+        text-decoration: none !important;
+        border-radius: 8px 8px 0 0;
+        border: 2px solid transparent;
+        border-bottom: none;
+        margin-bottom: -2px;
+        transition: color .2s, background .2s;
+
+        &:visited {
+            color: #6b7280;
+        }
+
+        &:hover {
+            color: #2563eb;
+            background: #eff6ff;
+        }
+    }
+
+    &__tabActive {
+        color: #2563eb !important;
+        font-weight: 700;
+        border-color: #e5e7eb;
+        border-bottom-color: #fff;
+        background: #fff;
+
+        &:visited {
+            color: #2563eb;
+        }
+    }
+
+    &__tabsContent {
+        margin-bottom: 60px;
+        color: #4b5563;
+        line-height: 1.8;
+        font-size: 1rem;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 0 12px 12px 12px;
+        padding: 28px;
+    }
+
+    &__related {
+        h2 {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__relatedGrid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    &__card {
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 16px;
+        transition: .3s;
+
+        &:hover {
+            transform: translateY(-3px);
+        }
+
+        img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-weight: 700;
+            color: #111827;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 0 12px;
+        margin: 24px auto;
+
+        h1 {
+            font-size: 1.4rem;
+        }
+
+        &__content {
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        &__gallery {
+            flex-direction: column-reverse;
+        }
+
+        &__thumbs {
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        &__img img {
+            height: 260px;
+        }
+
+        &__price {
+            font-size: 1.5rem;
+        }
+
+        &__button {
+            width: 100%;
+        }
+
+        &__tabs {
+            gap: 0;
+        }
+
+        &__tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px 8px;
+            font-size: .85rem;
+        }
+
+        &__tabsContent {
+            padding: 16px;
+            border-radius: 0 0 12px 12px;
+        }
+
+        &__relatedGrid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+    }
+}
