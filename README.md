@@ -4,7 +4,7 @@ E-commerce desenvolvido em React consumindo a API pública [DummyJSON](https://d
 
 ## 🚀 Demo
 
-[ronyshop.vercel.app](https://ronyshop.vercel.app)
+> [ronyshop.vercel.app](https://rony-shop.vercel.app/)
 
 ## ✨ Funcionalidades
 
