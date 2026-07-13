@@ -6,7 +6,7 @@ export const GlobalContext = createContext();
 export const GlobalStorage = ({ children }) => {
     const [carrinho, setCarrinho] = useState([])
     const [modal, setModal] = useState(false)
-    const [categoria, setCategoria] = useState('beauty')
+    const [categoria, setCategoria] = useState('Todos')
     // Fecha o modal
     function openModal() {
         setModal(true)

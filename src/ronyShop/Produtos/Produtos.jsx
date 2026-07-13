@@ -11,17 +11,30 @@ const Produtos = () => {
   const [loading, setLoading] = useState(false)
   const global = useContext(GlobalContext)
   const [search, setSearch] = useState('')
+  const [visible, setVisible] = useState(30)
 
+
+  //Faz um filtro procura se existe algum produto pelo title com o valor digitado na pesquisa, e joga esse valor na variavel 
   const produtosFiltrados = dados?.products?.filter((produto) =>
     produto.title.toLowerCase().includes(search.toLowerCase())
   );
 
-  //Limpa a barra de pesquisa quando trocamos a categoria
+  //Aqui estou usando o slice, para falar quantos produtos vao ser exibidos, começando com 30
+  const produtosVisiveis = produtosFiltrados?.slice(0, visible)
+
+  //Limpa a barra de pesquisa quando trocamos a categoria e coloca pra ser visualizado apenas 30
   useEffect(() => {
     setSearch('')
+    setVisible(30)
   }, [global.categoria])
 
-  console.log(produtosFiltrados)
+  //quando a buscar for realizado, colocamos denovo a quantidade de produtos visualizados em 30
+  useEffect(() => {
+    setVisible(30)
+  }, [search])
+
+
+
   // Da um Fetch na api e tras todos os produtos
   useEffect(() => {
     let urlApi = 'Todos'
@@ -30,6 +43,7 @@ const Produtos = () => {
     } else {
       urlApi = `https://dummyjson.com/products/category/${global.categoria}`
     }
+    
 
     setLoading(true)
     fetch(urlApi)
@@ -64,7 +78,7 @@ const Produtos = () => {
             onChange={(event) => setSearch(event.target.value)}
           />
 
-          {produtosFiltrados?.map((produto) => {
+          {produtosVisiveis?.map((produto) => {
             //Esse Calcula o valor de cada produto, com desconto e sem desconto
 
             const produtoDesconto = produto.price * (produto.discountPercentage / 100)
@@ -77,12 +91,14 @@ const Produtos = () => {
                   <h2 className={styles.products__title} >{produto.title}</h2>
                   <p className={styles.products__price}>R$ {produto.price}</p>
                   <p className={styles.products__descount}>R$ {produtoTotal.toFixed(2)} <span>{produto.discountPercentage.toFixed(0)}% Off Frete grátis</span></p>
-
                 </Link>
+
               </div>
             )
           })}
+
         </div>
+        {dados?.products?.length > 30 && <button className={styles.products__more} onClick={() => setVisible((prev) => prev + 30)}>Carregar mais</button>}
       </section >
     </>
   )
