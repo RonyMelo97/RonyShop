@@ -32,7 +32,7 @@ const Categorias = () => {
             </div>
 
             <div className={styles.categorias__list}>
-
+                
                 <button
                     className={styles.categorias__item}
                     onClick={() => global.setCategoria("Todos")}

@@ -4,18 +4,29 @@ import { Link } from 'react-router-dom'
 import Head from '../Head/Head'
 import { GlobalContext } from '../GlobalContext'
 import Categorias from '../Components/Catedorias/Categorias'
+import Search from '../Components/Search/Search'
 
 const Produtos = () => {
   const [dados, setDados] = useState()
   const [loading, setLoading] = useState(false)
   const global = useContext(GlobalContext)
+  const [search, setSearch] = useState('')
 
+  const produtosFiltrados = dados?.products?.filter((produto) =>
+    produto.title.toLowerCase().includes(search.toLowerCase())
+  );
 
-  // Da um Fetech na api e tras todos os produtos
+  //Limpa a barra de pesquisa quando trocamos a categoria
+  useEffect(() => {
+    setSearch('')
+  }, [global.categoria])
+
+  console.log(produtosFiltrados)
+  // Da um Fetch na api e tras todos os produtos
   useEffect(() => {
     let urlApi = 'Todos'
     if (global.categoria === 'Todos') {
-      urlApi = 'https://dummyjson.com/products'
+      urlApi = 'https://dummyjson.com/products?limit=194'
     } else {
       urlApi = `https://dummyjson.com/products/category/${global.categoria}`
     }
@@ -28,6 +39,7 @@ const Produtos = () => {
         setLoading(false)
       })
   }, [global.categoria])
+
   if (dados === null) return null
   return (
     <>
@@ -45,8 +57,14 @@ const Produtos = () => {
         </div>
         <div className={styles.products__content}>
 
+          <input
+            type="text"
+            value={search}
+            placeholder='Pesquisar'
+            onChange={(event) => setSearch(event.target.value)}
+          />
 
-          {dados?.products?.map((produto) => {
+          {produtosFiltrados?.map((produto) => {
             //Esse Calcula o valor de cada produto, com desconto e sem desconto
 
             const produtoDesconto = produto.price * (produto.discountPercentage / 100)
@@ -70,4 +88,4 @@ const Produtos = () => {
   )
 }
 
-export default Produtos
+export default React.memo(Produtos)

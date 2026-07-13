@@ -21,7 +21,6 @@ const Modal = () => {
 
         acumulador.total = acumulador.total + subtotal
         acumulador.totalComDesconto = acumulador.totalComDesconto + totalProduto
-
         return acumulador;
     }, {
         total: 0,

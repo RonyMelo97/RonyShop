@@ -9,7 +9,7 @@ const Carrinho = () => {
     function openModal(){
         global.setModal(true)
     }
-    // Modal so abre de for maior que 0 (se tiver produto no carrinho)
+    // O carrinho so aparece se a quantidade de itens dele for maior que 0
     if(global.carrinho.length > 0)
     return (
         <section className='animeLeft'>
