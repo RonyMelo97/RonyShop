@@ -1,7 +1,7 @@
 import React, { Children, useContext, useState } from 'react'
 import carrinhoIcon from '../../images/carrinho.png'
 import styles from './Carrinho.module.scss'
-import { GlobalContext } from '../../GlobalContext'
+import { GlobalContext } from '../../hooks/GlobalContext'
 
 const Carrinho = () => {
     const global = useContext(GlobalContext)

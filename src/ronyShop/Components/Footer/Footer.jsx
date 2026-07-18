@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styles from './Footer.module.scss'
 import { Link } from 'react-router-dom'
-import { GlobalContext } from '../GlobalContext'
+import { GlobalContext } from '../../hooks/GlobalContext'
 const Footer = () => {
   
   const global = useContext(GlobalContext)

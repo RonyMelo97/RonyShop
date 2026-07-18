@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams, NavLink, Outlet } from 'react-router-dom'
 import styles from './Produto.module.scss'
-import Head from '../Head/Head'
-import imgLoading from '../images/icon-loading.gif'
-import { GlobalContext } from '../GlobalContext'
-import Carrinho from '../Components/Carrinho/Carrinho'
-import ProdutoRelacionado from '../Components/ProdutoRelacionado/ProdutoRelacionado'
+import Head from '../../Components/Head/Head'
+import { GlobalContext } from '../../hooks/GlobalContext'
+import Carrinho from '../../Components/Carrinho/Carrinho'
+import ProdutoRelacionado from '../../Components/ProdutoRelacionado/ProdutoRelacionado'
 
 const Produto = ({ imageIndex }) => {
     const [dados, setDados] = useState(null)

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import styles from './Modal.module.scss'
-import { GlobalContext } from '../../GlobalContext'
+import { GlobalContext } from '../../hooks/GlobalContext'
 import { useLocation } from 'react-router-dom'
 
 const Modal = () => {

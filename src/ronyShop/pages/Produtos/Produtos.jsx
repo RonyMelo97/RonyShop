@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import styles from './Produtos.module.scss'
 import { Link } from 'react-router-dom'
-import Head from '../Head/Head'
-import { GlobalContext } from '../GlobalContext'
-import Categorias from '../Components/Catedorias/Categorias'
-import Search from '../Components/Search/Search'
+import Head from '../../Components/Head/Head'
+import { GlobalContext } from '../../hooks/GlobalContext'
+import Categorias from '../../Components/Catedorias/Categorias'
+import Search from '../../Components/Search/Search'
 
 const Produtos = () => {
   const [dados, setDados] = useState()

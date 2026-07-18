@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import styles from './Header.module.scss'
-import Carrinho from '../Components/Carrinho/Carrinho'
+import Carrinho from '../Carrinho/Carrinho'
 
 
 const Header = () => {
