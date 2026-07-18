@@ -1,6 +1,6 @@
 import React from 'react'
-import Head from '../../Components/Head/Head'
-import ContatoImg from '../../assets/contato.webp'
+import Head from '../../components/Head/Head'
+import ContatoImg from '../../assets/images/contato.jpg'
 import styles from './Contato.module.scss'
 
 const Contato = () => {

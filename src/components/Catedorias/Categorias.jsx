@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../../hooks/GlobalContext'
 import styles from './Categorias.module.scss'
 
+
 const Categorias = () => {
     const [categorias, setCategorias] = useState([])
     const global = useContext(GlobalContext)
@@ -59,6 +60,7 @@ const Categorias = () => {
                             className={styles.categorias__item}
                             onClick={handleCategoria}
                         >
+                            
                             {categoria}
                         </button>
                     )

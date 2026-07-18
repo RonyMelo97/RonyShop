@@ -1,5 +1,5 @@
 import React, { Children, useContext, useState } from 'react'
-import carrinhoIcon from '../../images/carrinho.png'
+import carrinhoIcon from '../../assets/icons/carrinho.png'
 import styles from './Carrinho.module.scss'
 import { GlobalContext } from '../../hooks/GlobalContext'
 
