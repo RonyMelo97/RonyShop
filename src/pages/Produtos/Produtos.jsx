@@ -5,6 +5,8 @@ import Head from '../../components/Head/Head'
 import { GlobalContext } from '../../hooks/GlobalContext'
 import Categorias from '../../components/Catedorias/Categorias'
 import Search from '../../components/Search/Search'
+import ModalCategorias from '../../components/ModalCategorias/ModalCategorias'
+
 
 const Produtos = () => {
   const [dados, setDados] = useState()
@@ -12,6 +14,8 @@ const Produtos = () => {
   const global = useContext(GlobalContext)
   const [search, setSearch] = useState('')
   const [visible, setVisible] = useState(30)
+  const [openModal, setOpenModal] = useState(false)
+  
 
 
   //Faz um filtro procura se existe algum produto pelo title com o valor digitado na pesquisa, e joga esse valor na variavel 
@@ -43,7 +47,7 @@ const Produtos = () => {
     } else {
       urlApi = `https://dummyjson.com/products/category/${global.categoria}`
     }
-    
+
 
     setLoading(true)
     fetch(urlApi)
@@ -61,7 +65,7 @@ const Produtos = () => {
       <section className={`${styles.products} animeLeft`}>
 
         <h1>Produtos</h1>
-        <Categorias />
+        <Categorias setOpenModal={setOpenModal}/>
         <div className={styles["products__content--loading"]}>
           {dados?.products?.slice(0, 1).map((produto) => {
             if (loading) return (
@@ -100,6 +104,7 @@ const Produtos = () => {
         </div>
         {dados?.products?.length > 30 && <button className={styles.products__more} onClick={() => setVisible((prev) => prev + 30)}>Carregar mais</button>}
       </section >
+      <ModalCategorias openModal={openModal} setOpenModal={setOpenModal} />
     </>
   )
 }

@@ -3,10 +3,12 @@ import { GlobalContext } from '../../hooks/GlobalContext'
 import styles from './Categorias.module.scss'
 
 
-const Categorias = () => {
+const Categorias = ({ setOpenModal }) => {
     const [categorias, setCategorias] = useState([])
+    const [categoria, setCategoria] = useState([])
     const global = useContext(GlobalContext)
-    const [catQtd, setCatQtd] = useState(6)
+
+
 
     // Consumindo api que tem as catedorias, e colocando na variavel Categorias
     useEffect(() => {
@@ -17,59 +19,66 @@ const Categorias = () => {
             })
     }, [])
 
+    // Consumindo a api na parte de especifica de cada categoriaia
+
+    useEffect(() => {
+        fetch(`https://dummyjson.com/products/category/smartphones`)
+            .then(response => response.json())
+            .then(json => {
+                setCategoria(json)
+            })
+    }, [])
+
+    
+
     // Função que pega o valor da categoria clicada
     function handleCategoria(event) {
         global.setCategoria(event.target.innerText)
     }
 
-    function handleQdt() {
-        if (catQtd === 6) {
-            setCatQtd(categorias.length)
-        }
-        else {
-            setCatQtd(6)
-        }
-    }
-
     return (
-        <section className={styles.categorias}>
+        <>
+            <section className={styles.categorias}>
 
-            <div className={styles.categorias__header}>
-                <h2>Categorias</h2>
+                <div className={styles.categorias__header}>
+                    <h2>Categorias</h2>
 
-                <p>
-                    Escolha uma categoria para filtrar os produtos.
-                </p>
-                <button onClick={handleQdt}>Ver todas</button>
-            </div>
+                    <p>
+                        Escolha uma categoria para filtrar os produtos.
+                    </p>
+                    <button onClick={() => setOpenModal(true)}>Ver todas</button>
 
-            <div className={styles.categorias__list}>
+                </div>
 
-                <button
-                    className={styles.categorias__item}
-                    onClick={() => global.setCategoria("Todos")}
-                >
-                    todos
-                </button>
 
-                {categorias?.slice(0, catQtd).map((categoria, index) => {
+                <div className={styles.categorias__list}>
 
-                    return (
-                        <button
-                            key={index}
-                            className={styles.categorias__item}
-                            onClick={handleCategoria}
-                        >
-                            
-                            {categoria}
-                        </button>
-                    )
+                    <button
+                        className={styles.categorias__item}
+                        onClick={() => global.setCategoria("Todos")}
+                    >
+                        todos
+                    </button>
 
-                })}
+                    {categorias?.slice(0, 6).map((categoria, index) => {
 
-            </div>
+                        return (
+                            <button
+                                key={index}
+                                className={styles.categorias__item}
+                                onClick={handleCategoria}
+                            >
 
-        </section>
+                                {categoria}
+                            </button>
+                        )
+
+                    })}
+
+                </div>
+            </section>
+        </>
+
     )
 }
 
