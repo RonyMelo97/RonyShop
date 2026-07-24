@@ -1,9 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../../hooks/GlobalContext'
-
 import styles from './ModalCategorias.module.scss'
 import categoriaIcon from '../../assets/icons/todas.svg'
-import BeautyIcon from "../../assets/icons/todas.svg";
+import BeautyIcon from "../../assets/icons/beauty.svg";
 import FragrancesIcon from "../../assets/icons/fragrances.svg";
 import FurnitureIcon from "../../assets/icons/furniture.svg";
 import GroceriesIcon from "../../assets/icons/groceries.svg";
@@ -60,8 +59,6 @@ const ModalCategorias = ({ openModal, setOpenModal }) => {
         "womens-watches": WomensWatchesIcon,
     };
 
-    console.log(categoryIcones)
-    
     // Consumindo api que tem as catedorias, e colocando na variavel Categorias
     useEffect(() => {
         fetch("https://dummyjson.com/products/category-list")
@@ -78,6 +75,17 @@ const ModalCategorias = ({ openModal, setOpenModal }) => {
         setOpenModal(false)
 
     }
+
+    //Função do botão ver mais 
+    function seeMore() {
+        setCatVisiveis(catVisiveis + 4)
+    }
+    //função que fecha o modal 
+    function closeModal(){
+        setOpenModal(false)
+        setCatVisiveis(16)
+    }
+
     if (!openModal) return null
     return (
         <>
@@ -92,7 +100,7 @@ const ModalCategorias = ({ openModal, setOpenModal }) => {
 
 
                     <div
-                        onClick={() => setOpenModal(false)}
+                        onClick={closeModal}
                         className={styles.modal__close}
                     ></div>
                 </div>
@@ -116,9 +124,13 @@ const ModalCategorias = ({ openModal, setOpenModal }) => {
 
                 </div>
 
-                <button onClick={() => setCatVisiveis(catVisiveis + 4)} className={styles.modalCategorias__more}>
-                    Carregar mais categorias
-                </button>
+                {catVisiveis < categorias.length &&
+                    <button onClick={seeMore} className={styles.modalCategorias__more}>
+                        Carregar mais categorias
+                    </button>
+                }
+
+
             </div>
 
         </>
