@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../../hooks/GlobalContext'
 import styles from './ModalCategorias.module.scss'
-import categoriaIcon from '../../assets/icons/todas.svg'
+import CategoriaIcon from '../../assets/icons/todas.svg'
 import BeautyIcon from "../../assets/icons/beauty.svg";
 import FragrancesIcon from "../../assets/icons/fragrances.svg";
 import FurnitureIcon from "../../assets/icons/furniture.svg";
@@ -33,6 +33,7 @@ const ModalCategorias = ({ openModal, setOpenModal }) => {
     const global = useContext(GlobalContext)
 
     const categoryIcones = {
+        todos: CategoriaIcon,
         beauty: BeautyIcon,
         fragrances: FragrancesIcon,
         furniture: FurnitureIcon,
@@ -84,6 +85,7 @@ const ModalCategorias = ({ openModal, setOpenModal }) => {
     function closeModal(){
         setOpenModal(false)
         setCatVisiveis(16)
+
     }
 
     if (!openModal) return null

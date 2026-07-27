@@ -1,6 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../../hooks/GlobalContext'
 import styles from './Categorias.module.scss'
+import CategoriaIcon from '../../assets/icons/todas.svg'
+import BeautyIcon from "../../assets/icons/beauty.svg";
+import FragrancesIcon from "../../assets/icons/fragrances.svg";
+import FurnitureIcon from "../../assets/icons/furniture.svg";
+import GroceriesIcon from "../../assets/icons/groceries.svg";
+import HomeDecorationIcon from "../../assets/icons/home-decoration.svg";
+import KitchenAccessoriesIcon from "../../assets/icons/kitchen-accessories.svg";
 
 
 const Categorias = ({ setOpenModal }) => {
@@ -8,6 +15,15 @@ const Categorias = ({ setOpenModal }) => {
     const [categoria, setCategoria] = useState([])
     const global = useContext(GlobalContext)
 
+    const categoryIcones = {
+        todos: CategoriaIcon,
+        beauty: BeautyIcon,
+        fragrances: FragrancesIcon,
+        furniture: FurnitureIcon,
+        groceries: GroceriesIcon,
+        "home-decoration": HomeDecorationIcon,
+        "kitchen-accessories": KitchenAccessoriesIcon,
+    };
 
 
     // Consumindo api que tem as catedorias, e colocando na variavel Categorias
@@ -29,7 +45,7 @@ const Categorias = ({ setOpenModal }) => {
             })
     }, [])
 
-    
+
 
     // Função que pega o valor da categoria clicada
     function handleCategoria(event) {
@@ -42,11 +58,7 @@ const Categorias = ({ setOpenModal }) => {
 
                 <div className={styles.categorias__header}>
                     <h2>Categorias</h2>
-
-                    <p>
-                        Escolha uma categoria para filtrar os produtos.
-                    </p>
-                    <button onClick={() => setOpenModal(true)}>Ver todas</button>
+                    <button onClick={() => setOpenModal(true)}>Ver todas <span>›</span></button>
 
                 </div>
 
@@ -54,23 +66,37 @@ const Categorias = ({ setOpenModal }) => {
                 <div className={styles.categorias__list}>
 
                     <button
-                        className={styles.categorias__item}
+                        className={`${styles.categorias__item} ${
+                                    global.categoria === "Todos"
+                                    ? styles.categorias__item__active
+                                    : ""
+                                
+                                }`}
                         onClick={() => global.setCategoria("Todos")}
                     >
+                        <img src={categoryIcones.todos} alt={categoria} className={styles.categorias__icon} />
                         todos
                     </button>
 
                     {categorias?.slice(0, 6).map((categoria, index) => {
 
                         return (
-                            <button
+
+                            <p
+
                                 key={index}
-                                className={styles.categorias__item}
+                                className={`${styles.categorias__item} ${
+                                    global.categoria === categoria
+                                    ? styles.categorias__item__active
+                                    : ""
+                                
+                                }`}
                                 onClick={handleCategoria}
                             >
+                                <img src={categoryIcones[categoria]} alt={categoria} className={styles.categorias__icon} />
 
                                 {categoria}
-                            </button>
+                            </p>
                         )
 
                     })}

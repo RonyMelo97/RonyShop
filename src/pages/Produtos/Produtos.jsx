@@ -15,7 +15,7 @@ const Produtos = () => {
   const [search, setSearch] = useState('')
   const [visible, setVisible] = useState(30)
   const [openModal, setOpenModal] = useState(false)
-  
+
 
 
   //Faz um filtro procura se existe algum produto pelo title com o valor digitado na pesquisa, e joga esse valor na variavel 
@@ -65,7 +65,7 @@ const Produtos = () => {
       <section className={`${styles.products} animeLeft`}>
 
         <h1>Produtos</h1>
-        <Categorias setOpenModal={setOpenModal}/>
+        <Categorias setOpenModal={setOpenModal} />
         <div className={styles["products__content--loading"]}>
           {dados?.products?.slice(0, 1).map((produto) => {
             if (loading) return (
@@ -87,16 +87,26 @@ const Produtos = () => {
 
             const produtoDesconto = produto.price * (produto.discountPercentage / 100)
             const produtoTotal = produto.price - produtoDesconto
+            const produtoJuros = produtoTotal / 12
 
             return (
               < div className={styles.products__card} key={produto.id} >
                 <Link className={styles.products__link} to={`produto/${produto.id}`}>
                   <img className={styles.products__img} src={produto.thumbnail} alt={produto.title} />
                   <h2 className={styles.products__title} >{produto.title}</h2>
-                  <p className={styles.products__price}>R$ {produto.price}</p>
-                  <p className={styles.products__descount}>R$ {produtoTotal.toFixed(2)} <span>{produto.discountPercentage.toFixed(0)}% Off Frete grátis</span></p>
+                  <h2 className={styles.products__rating}>
+                    ★ {produto.rating} 
+                  </h2>
+                  
+                  <p className={styles.products__descount}>R$ {produtoTotal.toFixed(2)} 
+                    <span className={styles.products__price}>R$ {produto.price}</span>
+                  </p>
+                  <span className={styles.products__fees}>12x de R$ {produtoJuros.toFixed(2)}</span>
+                  <span className={styles.products__freeShipping}>Frete grátis</span>
+                  
+                  <span className={styles.products__freeShipping2}>-{produto.discountPercentage.toFixed(0)}%</span>
+                  
                 </Link>
-
               </div>
             )
           })}

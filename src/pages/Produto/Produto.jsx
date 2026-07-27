@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams, NavLink, Outlet } from 'react-router-dom'
+import { useParams, NavLink, Outlet, Link } from 'react-router-dom'
 import styles from './Produto.module.scss'
 import Head from '../../components/Head/Head'
 import { GlobalContext } from '../../hooks/GlobalContext'
@@ -91,6 +91,15 @@ const Produto = ({ imageIndex }) => {
         <>
             <section className={`${styles.product} q`}>
                 <Head title={dados.title} />
+
+                <nav className={styles.product__breadcrumb}>
+                    <Link to="/" onClick={() => global.setCategoria('Todos')}>Início</Link>
+                    <span>›</span>
+                    <Link to="/" onClick={() => global.setCategoria(dados.category)}>{dados.category}</Link>
+                    <span>›</span>
+                    <p>{dados.title}</p>
+                </nav>
+
                 <div className={styles.product__content}>
                     <div className={styles.product__gallery}>
                         <div className={styles.product__thumbs}>
@@ -99,6 +108,9 @@ const Produto = ({ imageIndex }) => {
                             ))}
                         </div>
                         <div className={styles.product__img}>
+                            {dados.discountPercentage > 0 && (
+                                <span className={styles.product__badge}>-{dados.discountPercentage.toFixed(0)}%</span>
+                            )}
                             <img src={dados.images[galeria]} alt={dados.title} />
                         </div>
                     </div>
@@ -148,6 +160,17 @@ const Produto = ({ imageIndex }) => {
                         >
                             Adicionar ao carrinho
                         </button>
+
+                        <div className={styles.product__shipping}>
+                            <div>
+                                <span>🚚</span>
+                                <p>Frete grátis<small>Para compras acima de R$199</small></p>
+                            </div>
+                            <div>
+                                <span>↩</span>
+                                <p>Devolução garantida<small>Até 7 dias após o recebimento</small></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

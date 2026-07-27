@@ -21,19 +21,29 @@ const ProdutoRelacionado = ({ categoria }) => {
     if (dados === null) return null
     return (
         <section className={styles.product__related}>
-            <h2>Produtos relacionados</h2>
+            <h2 className={styles.product__subtitle}>Produtos relacionados</h2>
             <div className={styles.product__relatedGrid}>
                 {dados?.products.slice(0, 8).map((produto, idex) => {
                     const produtoDesconto = produto.price * (produto.discountPercentage / 100)
                     const produtoTotal = produto.price - produtoDesconto
+                    const produtoJuros = produtoTotal / 12
 
                     return (
                         <article key={produto.id} className={styles.product__card}>
-                            <Link to={`../produto/${produto.id}`}>
-                                <img src={produto.thumbnail} alt={produto.title} />
-                                <h3>{produto.title}</h3>
-                                <p className={styles.product__price}>R$ {produto.price.toFixed(2)}</p>
-                                <p className={styles.product__descount}>R$ {produtoTotal.toFixed(2)} <span>{produto.discountPercentage.toFixed(0)}% Off Frete grátis</span></p>
+                            <Link className={styles.product__link} to={`../produto/${produto.id}`}>
+                                <img className={styles.product__img} src={produto.thumbnail} alt={produto.title} />
+                                <h3 className={styles.product__title}>{produto.title}</h3>
+                                <h2 className={styles.product__rating}>
+                                    ★ {produto.rating}
+                                </h2>
+                                <p className={styles.product__descount}>R$ {produtoTotal.toFixed(2)}
+                                    <span className={styles.product__price}>R$ {produto.price}</span>
+                                </p>
+
+                                <span className={styles.product__fees}>12x de R$ {produtoJuros.toFixed(2)}</span>
+                                <span className={styles.product__freeShipping}>Frete grátis</span>
+
+                                <span className={styles.product__freeShipping2}>-{produto.discountPercentage.toFixed(0)}%</span>
                             </Link>
                         </article>
                     )

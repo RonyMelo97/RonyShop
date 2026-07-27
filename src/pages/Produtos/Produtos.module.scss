@@ -5,10 +5,10 @@
     width: 100%;
     max-width: 1200px;
     margin: 40px auto;
-    padding: 0 24px;
+    padding: 0;
 
     @media (max-width: 768px) {
-        padding: 0 12px;
+        padding: 0;
         margin: 20px auto;
 
         h1 {
@@ -29,6 +29,10 @@
         flex-wrap: wrap;
         gap: 24px;
         width: 100%;
+
+        @media (max-width: 768px) {
+            gap: 4px;
+        }
     }
 
     &__content--loading {
@@ -55,16 +59,17 @@
     }
 
     &__card {
-        flex: 1 1 280px;
-        max-width: calc((100% - 48px) / 3);
+        position: relative;
+        flex: 1 1 270px;
+        max-width: calc((100% - 48px) / 4);
 
         @media (max-width: 768px) {
-            flex: 1 1 100%;
+            flex: 1 1 46%;
             max-width: 100%;
         }
 
         border-radius: 16px;
-        border: 1px solid #e5e7eb;
+        border: 2px solid #edededad;
         background: #fff;
         overflow: hidden;
         transition: box-shadow .25s,
@@ -104,26 +109,62 @@
         margin: 0;
     }
 
+    &__rating {
+        font-size: 1rem;
+        color: #f59e0b;
+        padding-left: 16px;
+        margin: 16px 0 0 0;
+    }
+
     &__price {
         color: #aaaaaa;
         text-decoration: line-through;
         font-weight: 700;
         font-size: .9rem;
-        padding: 4px 16px 0px 16px;
-        margin: 0;
+        margin-left: 10px ;
+
+        @media (max-width: 768px) {
+             padding: 4px;
+        }
     }
 
     &__descount {
         color: #111827;
         font-weight: 700;
         font-size: 1.05rem;
-        padding: 4px 16px 16px;
+        padding: 4px 16px 0px;
         margin: 0;
+    }
 
-        span {
-            color: #00a650;
-            font-size: .9rem;
-        }
+    &__freeShipping {
+        color: #00a650;
+        font-size: .9rem;
+        font-weight: 700;
+        padding: 4px 16px 16px;
+    }
+
+    &__freeShipping2 {
+        //#2563eb
+        display: flex;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        justify-content: center;
+        align-items: center;
+        background-color: #7199f1;
+        color: #0039b5;
+        font-size: 0.9rem;
+        font-weight: 700;
+        padding: 4px 9px;
+        border-radius: 20px;
+
+    }
+
+    &__fees {
+        color: #aaaaaa;
+        font-size: .9rem;
+        padding-left: 16px;
+        margin: 0;
     }
 
     &__more {

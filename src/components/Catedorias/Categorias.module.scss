@@ -8,6 +8,9 @@
 
     &__header {
         margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
         h2 {
             font-size: 1.1rem;
@@ -16,9 +19,18 @@
             margin-bottom: 4px;
         }
 
-        p {
-            color: #6b7280;
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #2563eb;
             font-size: .9rem;
+            background-color: transparent;
+            font-weight: bold;
+        }
+        span{
+            font-size: 22px;
+            margin-left: 6px;
         }
     }
 
@@ -39,12 +51,17 @@
         }
     }
 
+
     &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
         border: 1px solid #e5e7eb;
         background: #fff;
         color: #374151;
         padding: 7px 16px;
-        border-radius: 999px;
+        border-radius: 16px;
         cursor: pointer;
         font-size: .875rem;
         font-weight: 500;
@@ -62,4 +79,20 @@
             text-transform: uppercase;
         }
     }
+
+    &__item__active{
+        background-color: #2563eb;
+        color: white;
+    }
+
+    &__icon {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        border-radius: 12px;
+        background: #e9eefe;
+        object-fit: contain;
+        pointer-events: none;
+    }
+
 }

@@ -11,6 +11,19 @@
         margin-bottom: 60px;
     }
 
+    &__breadcrumb {
+        display: flex;
+        gap: 10px;
+        text-decoration: none !important;
+        color: #B0B3BC;
+        font-weight: bold;
+
+        p {
+            font-weight: bold;
+            color: #111827;
+        }
+    }
+
     &__gallery {
         display: flex;
         gap: 16px;
@@ -47,6 +60,19 @@
         }
     }
 
+    &__badge {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #7199f1;
+        color: #0039b5;
+        font-size: 0.9rem;
+        font-weight: 700;
+        padding: 4px 9px;
+        border-radius: 20px;
+        width: 60px;
+    }
+
     &__loading {
         width: 40px;
         height: 40px;
@@ -57,7 +83,9 @@
         margin: 120px auto;
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
     }
 

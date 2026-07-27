@@ -34,15 +34,23 @@ body {
   color: $text;
   line-height: 1.5;
   padding: 40px 16px 0px 16px;
-}
 
+  @media (max-width: 768px) {
+    padding: 40px 6px 0px 6px;
+  }
+
+}
+a{
+  text-decoration: none;
+  color: unset;
+}
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 
   // Empurra o footer para o fundo quando o conteúdo é curto
-  > footer {
+  >footer {
     margin-top: auto;
   }
 }
