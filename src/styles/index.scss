@@ -68,7 +68,7 @@ label {
 }
 
 // =====================
-// 🧾 INPUTS / TEXTAREA / SELECT
+//  INPUTS / TEXTAREA / SELECT
 // =====================
 input:not([type="radio"]):not([type="checkbox"]),
 textarea,
@@ -90,7 +90,7 @@ select {
 }
 
 input[type="radio"] {
-  accent-color: $primary; // 🔥 moderno e simples
+  accent-color: $primary;
   margin-right: 6px;
   cursor: pointer;
 }
@@ -103,7 +103,7 @@ input[type="radio"]+label {
 }
 
 // =====================
-// 🔘 BUTTON
+// BUTTON
 // =====================
 button {
   display: inline-block;
@@ -128,7 +128,7 @@ button {
 }
 
 // =====================
-// ❗ ESTADOS SIMPLES
+// ESTADOS SIMPLES
 // =====================
 
 // erro via atributo

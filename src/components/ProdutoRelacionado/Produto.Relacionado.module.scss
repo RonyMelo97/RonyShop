@@ -53,8 +53,8 @@
         max-width: calc((100% - 48px) / 4);
 
         @media (max-width: 768px) {
-            flex: 1 1 46%;
-            max-width: 100%;
+            flex: 1 1 100%;
+            max-width: 49%;
         }
 
         border-radius: 16px;

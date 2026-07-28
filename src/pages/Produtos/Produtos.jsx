@@ -6,6 +6,7 @@ import { GlobalContext } from '../../hooks/GlobalContext'
 import Categorias from '../../components/Catedorias/Categorias'
 import Search from '../../components/Search/Search'
 import ModalCategorias from '../../components/ModalCategorias/ModalCategorias'
+import searchIcon from '../../assets/icons/search.svg'
 
 
 const Produtos = () => {
@@ -73,14 +74,18 @@ const Produtos = () => {
             )
           })}
         </div>
-        <div className={styles.products__content}>
-
+        <div className={styles.products__searchBar}>
+          <img src={searchIcon} alt="search" />
           <input
             type="text"
             value={search}
             placeholder='Pesquisar'
             onChange={(event) => setSearch(event.target.value)}
           />
+        </div>
+        <div className={styles.products__content}>
+
+
 
           {produtosVisiveis?.map((produto) => {
             //Esse Calcula o valor de cada produto, com desconto e sem desconto
@@ -95,17 +100,17 @@ const Produtos = () => {
                   <img className={styles.products__img} src={produto.thumbnail} alt={produto.title} />
                   <h2 className={styles.products__title} >{produto.title}</h2>
                   <h2 className={styles.products__rating}>
-                    ★ {produto.rating} 
+                    ★ {produto.rating}
                   </h2>
-                  
-                  <p className={styles.products__descount}>R$ {produtoTotal.toFixed(2)} 
+
+                  <p className={styles.products__descount}>R$ {produtoTotal.toFixed(2)}
                     <span className={styles.products__price}>R$ {produto.price}</span>
                   </p>
                   <span className={styles.products__fees}>12x de R$ {produtoJuros.toFixed(2)}</span>
                   <span className={styles.products__freeShipping}>Frete grátis</span>
-                  
+
                   <span className={styles.products__freeShipping2}>-{produto.discountPercentage.toFixed(0)}%</span>
-                  
+
                 </Link>
               </div>
             )
