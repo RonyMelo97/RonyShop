@@ -112,7 +112,7 @@ const Produtos = () => {
           })}
 
         </div>
-        {dados?.products?.length > 30 && <button className={styles.products__more} onClick={() => setVisible((prev) => prev + 30)}>Carregar mais</button>}
+        {dados?.products?.length > 30 && <button className={styles.products__more} onClick={() => setVisible((prev) => prev + 30)}>Carregar mais <span>›</span></button>}
       </section >
       <ModalCategorias openModal={openModal} setOpenModal={setOpenModal} />
     </>

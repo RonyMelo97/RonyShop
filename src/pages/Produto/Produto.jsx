@@ -164,11 +164,11 @@ const Produto = ({ imageIndex }) => {
                         <div className={styles.product__shipping}>
                             <div>
                                 <span>🚚</span>
-                                <p>Frete grátis<small>Para compras acima de R$199</small></p>
+                                <p>Frete grátis<small><br/>Para compras acima de R$199</small></p>
                             </div>
                             <div>
                                 <span>↩</span>
-                                <p>Devolução garantida<small>Até 7 dias após o recebimento</small></p>
+                                <p>Devolução garantida<small><br/>Até 7 dias após o recebimento</small></p>
                             </div>
                         </div>
                     </div>

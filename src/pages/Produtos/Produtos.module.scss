@@ -121,10 +121,10 @@
         text-decoration: line-through;
         font-weight: 700;
         font-size: .9rem;
-        margin-left: 10px ;
+        margin-left: 10px;
 
         @media (max-width: 768px) {
-             padding: 4px;
+            padding: 4px;
         }
     }
 
@@ -168,8 +168,22 @@
     }
 
     &__more {
-        margin-top: 20px;
-        margin-left: auto;
-        margin-right: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #2563eb;
+        font-size: 0.9rem;
+        background-color: transparent;
+        font-weight: bold;
+
+        span {
+            rotate: calc(90deg);
+            font-size: 20px;
+            margin-left: 6px;
+        }
+
+        &:hover {
+            background-color: transparent;
+        }
     }
 }
