@@ -215,7 +215,6 @@
             gap: 20px;
             border: 2px solid rgba(237, 237, 237, 0.6784313725);
             border-radius: 8px;
-            background: #fff;
 
             p {
                 font-weight: bold;
@@ -277,9 +276,8 @@
         color: #4b5563;
         line-height: 1.8;
         font-size: 1rem;
-        background: #fff;
         border: 1px solid #e5e7eb;
-        border-radius: 0 12px 12px 12px;
+        border-radius: 12px;
         padding: 28px;
     }
 
@@ -324,7 +322,7 @@
     }
 
     @media (max-width: 768px) {
-        padding: 0 12px;
+        padding: 0 4px;
         margin: 24px auto;
 
         h1 {
@@ -376,7 +374,7 @@
 
         &__tabsContent {
             padding: 16px;
-            border-radius: 0 0 12px 12px;
+            border-radius: 12px;
         }
 
         &__relatedGrid {
