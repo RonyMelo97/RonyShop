@@ -72,7 +72,8 @@ const ModalCategorias = ({ openModal, setOpenModal }) => {
 
     // Função que pega o valor da categoria clicada
     function handleCategoria(event) {
-        global.setCategoria(event.target.innerText)
+        const categoria = event.target.innerText.replaceAll(" ", "-")
+        global.setCategoria(categoria)
         setOpenModal(false)
 
     }
@@ -117,8 +118,7 @@ const ModalCategorias = ({ openModal, setOpenModal }) => {
                                 onClick={handleCategoria}
                             >
                                 <img src={categoryIcones[categoria]} alt={categoria} className={styles.categorias__icon} />
-                                <span className={styles.categorias__nome}>{categoria}</span>
-
+                                <span className={styles.categorias__nome}>{categoria.replaceAll('-', ' ')}</span>
                             </button>
                         )
 

@@ -91,11 +91,10 @@ const Produto = ({ imageIndex }) => {
         <>
             <section className={`${styles.product} q`}>
                 <Head title={dados.title} />
-
                 <nav className={styles.product__breadcrumb}>
                     <Link to="/" onClick={() => global.setCategoria('Todos')}>Início</Link>
                     <span>›</span>
-                    <Link to="/" onClick={() => global.setCategoria(dados.category)}>{dados.category}</Link>
+                    <Link to="/" onClick={() => global.setCategoria(dados.category)}>{dados.category.replaceAll('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</Link>
                     <span>›</span>
                     <p>{dados.title}</p>
                 </nav>

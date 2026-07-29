@@ -49,7 +49,8 @@ const Categorias = ({ setOpenModal }) => {
 
     // Função que pega o valor da categoria clicada
     function handleCategoria(event) {
-        global.setCategoria(event.target.innerText)
+        const categoria = event.target.innerText.replaceAll(' ' , "-").toLowerCase()
+        global.setCategoria(categoria)
     }
 
     return (
@@ -66,36 +67,32 @@ const Categorias = ({ setOpenModal }) => {
                 <div className={styles.categorias__list}>
 
                     <button
-                        className={`${styles.categorias__item} ${
-                                    global.categoria === "Todos"
-                                    ? styles.categorias__item__active
-                                    : ""
-                                
-                                }`}
+                        className={`${styles.categorias__item} ${global.categoria === "Todos"
+                                ? styles.categorias__item__active
+                                : ""
+
+                            }`}
                         onClick={() => global.setCategoria("Todos")}
                     >
                         <img src={categoryIcones.todos} alt={categoria} className={styles.categorias__icon} />
-                        todos
+                        Todos
                     </button>
 
                     {categorias?.slice(0, 6).map((categoria, index) => {
 
+                        const categoriaFormatada = categoria.replaceAll('-' , " ").replace(/\b\w/g, l => l.toUpperCase());
+
                         return (
-
                             <p
-
                                 key={index}
-                                className={`${styles.categorias__item} ${
-                                    global.categoria === categoria
-                                    ? styles.categorias__item__active
-                                    : ""
-                                
-                                }`}
+                                className={`${styles.categorias__item} ${global.categoria === categoria
+                                        ? styles.categorias__item__active
+                                        : ""
+                                    }`}
                                 onClick={handleCategoria}
                             >
                                 <img src={categoryIcones[categoria]} alt={categoria} className={styles.categorias__icon} />
-
-                                {categoria}
+                                {categoriaFormatada}
                             </p>
                         )
 
